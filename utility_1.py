@@ -1,18 +1,19 @@
-from functions import get_relevent_html
+from functions import get_relevant_html
 from functions import create_object_from_html
 
 
-user_input = input("Enter list of tax form names seperated by a comma:\n")
+user_input = input("Enter List of Tax Form Names (Seperated by ','):\n")
 input_list = user_input.split(',')
 
 form_list = []
 
 for form_name in input_list:
-    relevent_html = get_relevent_html(form_name.strip())
-    form_object = create_object_from_html(relevent_html)
+    relevant_html = get_relevant_html(form_name.strip())
+    form_object = create_object_from_html(relevant_html)
     form_list.append(form_object)
 
 
+print('Completed! Following Forms Were Found:')
 print({"form_list" : form_list})
 
 
