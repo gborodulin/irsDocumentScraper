@@ -1,6 +1,5 @@
 from functions import get_relevant_html
-from functions import create_object_from_html
-
+from functions import create_info_object
 
 user_input = input("Enter List of Tax Form Names (Seperated by ','):\n")
 input_list = user_input.split(',')
@@ -9,12 +8,17 @@ form_list = []
 
 for form_name in input_list:
     relevant_html = get_relevant_html(form_name.strip())
-    form_object = create_object_from_html(relevant_html)
-    form_list.append(form_object)
 
+    if len(relevant_html) > 0:
+        form_object = create_info_object(relevant_html)
+        form_list.append(form_object)
+    
 
-print('Completed! Following Forms Were Found:')
-print({"form_list" : form_list})
+if len(form_list) > 0:
+    print('Completed. Following Forms Were Found:\n', {"form_list" : form_list})
+else:
+    print('No Forms Were Found With Those Names. Please Check Spelling')
+    
 
 
 

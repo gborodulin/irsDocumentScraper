@@ -2,6 +2,7 @@ import os
 from bs4 import BeautifulSoup as soup
 from urllib.request import urlopen as uReq
 
+# Returns html containers that relate to the provided form name 
 def get_relevant_html(form_name):
 
     url = "https://apps.irs.gov/app/picklist/list/priorFormPublication.html?resultsPerPage=200&sortColumn=sortOrder&indexOfFirstRow=0&criteria=formNumber&value="+'+'.join(form_name.split())+"&isDescending=false"
@@ -21,7 +22,8 @@ def get_relevant_html(form_name):
 
     return relevant_rows
 
-def create_object_from_html(html):
+# Parses html and returns an object with info about the form
+def create_info_object(html):
     form_object = {
         "form_number": "",
         "form_title": "",
@@ -45,6 +47,7 @@ def create_object_from_html(html):
 
     return form_object
 
+# Parses html and returns object with a key:value pair of 'year':'pdf_link'
 def create_pdf_object(html, years_list):
     pdf_object = {}
 
@@ -57,6 +60,7 @@ def create_pdf_object(html, years_list):
             
     return pdf_object
 
+# Downloads pdfs for each year and saves them in seperate directory
 def download_pdfs(pdf_object, form_name):
     path = os.getcwd()
     folder =  path + '/'+form_name
