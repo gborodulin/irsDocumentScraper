@@ -1,4 +1,5 @@
 import os
+import shutil
 from bs4 import BeautifulSoup as soup
 from urllib.request import urlopen as uReq
 
@@ -64,7 +65,13 @@ def create_pdf_object(html, years_list):
 def download_pdfs(pdf_object, form_name):
     path = os.getcwd()
     folder =  path + '/'+form_name
-    os.mkdir(folder)
+    try:
+        os.mkdir(folder)
+    except FileExistsError:
+        shutil.rmtree(folder)
+        os.mkdir(folder)
+
+
 
     for year,pdf_link in pdf_object.items():
         response = uReq(pdf_link)

@@ -12,7 +12,7 @@ try:
     min_year = int(years_input.split('-')[0].strip())
     max_year = int(years_input.split('-')[-1].strip())
 except ValueError:
-    print("Input For Year Range Must Be Two Numbers Seperated by a '-' ")
+    print("Input for Range of Years must be Two Numbers Seperated by a '-' ")
     os._exit(0)
 
 years_list_int = list( range(min_year , max_year+1))
