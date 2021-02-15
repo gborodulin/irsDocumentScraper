@@ -24,9 +24,9 @@ python3 utility_2.py
 You will be asked to enter a tax form name.
 *Example: Form W-2*
 
-You will be asked to enter a range of years seperated by a dash ('-').
+You will then be asked to enter a range of years seperated by a dash ('-').
 *Example: 2018-2020*
 
-The utility will create a folder in the repository named the same as the tax form and download all PDFs within the given range to the folder.
+The utility will create a folder in the repository with the same name as the tax form and download all PDFs within the given range to the folder.
 
 

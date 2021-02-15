@@ -6,6 +6,7 @@ from urllib.request import urlopen as uReq
 # Returns html containers that relate to the provided form name 
 def get_relevant_html(form_name):
 
+    # url with query for search and sort
     url = "https://apps.irs.gov/app/picklist/list/priorFormPublication.html?resultsPerPage=200&sortColumn=sortOrder&indexOfFirstRow=0&criteria=formNumber&value="+'+'.join(form_name.split())+"&isDescending=false"
 
     uClient = uReq(url)
@@ -35,7 +36,6 @@ def create_info_object(html):
     years_lst = []
 
     for row in html:
-
         if len(years_lst) > 0:
             form_object["form_number"] = row.find("td", {"class": "LeftCellSpacer"}).text.strip()
             form_object["form_title"] = row.find("td", {"class": "MiddleCellSpacer"}).text.strip()
@@ -62,16 +62,16 @@ def create_pdf_object(html, years_list):
     return pdf_object
 
 # Downloads pdfs for each year and saves them in seperate directory
+# If directory already exists, delete it and it's contents and replace
 def download_pdfs(pdf_object, form_name):
     path = os.getcwd()
     folder =  path + '/'+form_name
+    
     try:
         os.mkdir(folder)
     except FileExistsError:
         shutil.rmtree(folder)
         os.mkdir(folder)
-
-
 
     for year,pdf_link in pdf_object.items():
         response = uReq(pdf_link)
