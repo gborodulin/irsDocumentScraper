@@ -3,7 +3,7 @@ import shutil
 from bs4 import BeautifulSoup as soup
 from urllib.request import urlopen as uReq
 
-# Returns html containers that relate to the provided form name 
+# Returns list of html containers that relate to the provided form name 
 def get_relevant_html(form_name):
 
     # url with query for search and sort
@@ -61,7 +61,7 @@ def create_pdf_object(html, years_list):
             
     return pdf_object
 
-# Downloads pdfs for each year and saves them in seperate directory
+# Downloads pdfs for each year and saves them in separate directory
 # If directory already exists, delete it and it's contents and replace
 def download_pdfs(pdf_object, form_name):
     path = os.getcwd()

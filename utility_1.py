@@ -1,8 +1,8 @@
 from functions import get_relevant_html
 from functions import create_info_object
 
-# Receive input from user and seperate each name into a list
-user_input = input("Enter List of Tax Form Names (Seperated by ','):\n")
+# Receive input from user and separate each name into a list
+user_input = input("Enter List of Tax Form Names (Separated by ','):\n")
 input_list = user_input.split(',')
 
 # Get list of relevant html containers and create an info object for each provided form name
