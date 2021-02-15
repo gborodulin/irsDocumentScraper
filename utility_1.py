@@ -14,8 +14,7 @@ for form_name in input_list:
     if len(relevant_html) > 0:
         form_object = create_info_object(relevant_html)
         form_list.append(form_object)
-    
-
+     
 if len(form_list) > 0:
     print('Completed. Following Forms Were Found:\n', {"form_list" : form_list})
 else:

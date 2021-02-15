@@ -10,7 +10,7 @@ Using library BeautifulSoup (pip install bs4)
 Within the repository, run the following in the command line:
 python3 utility_1.py 
 
-You will be asked to enter a list of tax form names seperated by a comma (',').
+You will be asked to enter a list of tax form names (case sensitive) seperated by a comma (','). 
 *Example: Form W-2,Publ 1,Form 56-F*
 
 The utility will print the results to the console in json format
@@ -21,7 +21,7 @@ The utility will print the results to the console in json format
 Within the repository, run the following in the command line:
 python3 utility_2.py 
 
-You will be asked to enter a tax form name.
+You will be asked to enter a tax form name (case sensitive).
 *Example: Form W-2*
 
 You will then be asked to enter a range of years seperated by a dash ('-').
