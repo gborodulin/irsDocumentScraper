@@ -1,5 +1,4 @@
-from functions import get_relevant_html
-from functions import create_info_object
+from functions import get_relevant_html, create_info_object
 
 # Receive input from user and separate each name into a list
 user_input = input("Enter List of Tax Form Names (Separated by ','):\n")

@@ -1,7 +1,5 @@
 import os
-from functions import get_relevant_html
-from functions import create_pdf_object
-from functions import download_pdfs
+from functions import get_relevant_html, create_pdf_object, download_pdfs 
 
 # Receive input for form name
 form_input = input("Enter Tax Form Name:\n")
