@@ -1,4 +1,4 @@
-# Greg Borodulin - Pinwheel Coding Challenge
+# Greg Borodulin
 
 Written in Python 3.9.1
 
